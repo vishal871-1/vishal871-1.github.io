@@ -1,0 +1,21 @@
+
+<div class="container">
+    <h2 style="text-align: center;">All Users</h2>       
+    <div style="float: right;" class="my-2">
+      <input class="form-control mx-auto" style="width: 268px;"  type="search" placeholder="Search" aria-label="Search"[(ngModel)]="search">
+    </div>      
+    <table class="table table-bordered table-hover border-dark">
+      <thead>
+        <tr>
+          <th >Email ID</th>
+          <th >UserName</th>
+        </tr>
+      </thead>
+       <tbody *ngFor="let i of user | filter:search:'firstName'">
+        <tr>
+          <td>{{i.email}}</td>
+          <td>{{i.firstName}} {{i.lastName}}</td>
+        </tr>
+      </tbody> 
+    </table>
+  </div>

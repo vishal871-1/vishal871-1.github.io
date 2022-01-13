@@ -1,0 +1,15 @@
+<div class="container-fluid">   
+  <div class="row">
+    <div class="col-sm-3" *ngIf="show" style="background-color:rgba(57, 65, 63, 0.342);">
+      <br>
+      <app-userprofile></app-userprofile>
+    </div>
+    <div class="col-sm-7" style="background-color:rgba(29, 85, 48, 0.377);">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-sm-2"  *ngIf="show" style="background-color:rgba(37, 73, 33, 0.555);">
+      <br>
+      <app-navbar></app-navbar>
+    </div>
+  </div>
+</div>

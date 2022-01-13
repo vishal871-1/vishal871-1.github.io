@@ -1,0 +1,79 @@
+<div class=" container container-fluid" >
+    <h2 style="text-align: center;">Registration Form</h2>
+    <form class="form-horizontal" [formGroup]="Register" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+            <label for="firstName" class="control-label col-sm-2">First Name : </label> 
+            <div class="col-sm-10">
+              <input type="text"  class="form-control" id="firstName" placeholder="Enter your First Name" required formControlName="firstName">
+              <div class="text-danger" *ngIf="Register.controls['firstName'].hasError('required')&& Register.controls['firstName'].touched">
+                First Name is Required*
+              </div>
+              <div class="text-danger" *ngIf="Register.controls['firstName'].hasError('minlength')&& Register.controls['firstName'].touched">
+                User Name Should be minium 3 character *
+              </div>
+            </div>
+            
+        </div>
+        <br>
+        <div class="form-group row">
+            <label for="lastName" class="control-label col-sm-2">Last Name : </label>
+            <div class="col-sm-10">
+              <input type="text"  class="form-control" id="lastName" placeholder="Enter your Last Name " required formControlName="lastName">
+              <div class="text-danger" *ngIf="Register.controls['lastName'].hasError('required')&& Register.controls['lastName'].touched">
+                Last Name is Required*
+              </div>
+              <div class="text-danger" *ngIf="Register.controls['lastName'].hasError('minlength')&& Register.controls['lastName'].touched">
+                Last Name Should be minium 3 character *
+              </div>
+            </div>
+          
+        </div>
+        <br>
+        <div class="form-group row">
+            <label for="staticEmail" class="control-label col-sm-2">Email : </label>
+            <div class="col-sm-10">
+                <input type="text"  class="form-control" id="email" placeholder="Email" required formControlName="email">
+                <div class="text-danger" *ngIf="Register.controls['email'].hasError('required')&& Register.controls['email'].touched">
+                    Email is Required*
+                  </div>
+                  <div class="text-danger" *ngIf="Register.controls['email'].hasError('pattern')&& Register.controls['email'].touched">
+                    pattern mismatch*
+                  </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group row">
+            <label for="inputPassword" class="control-label col-sm-2">Password : </label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="password" placeholder="Password" required formControlName="password">
+                <div class="text-danger" *ngIf="Register.controls['password'].hasError('required')&& Register.controls['password'].touched">
+                    Password is Required*
+              </div>
+              <div class="text-danger" *ngIf="Register.controls['password'].hasError('minlength')&& Register.controls['password'].touched">
+                Password Should be minium 8 character *
+              </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group row">
+            <label for="contactNo" class="control-label col-sm-2">Contact Number : </label>
+            <div class="col-sm-10">
+                <input type="number"  class="form-control" id="contactNo" placeholder="Enter your Contact Number" required formControlName="contactNumber">
+                <div class="text-danger" *ngIf="Register.controls['contactNumber'].hasError('required')&& Register.controls['contactNumber'].touched">
+                    Contact Number is Required*
+                  </div>
+                  <div class="text-danger" *ngIf="Register.controls['contactNumber'].hasError('minlength')&& Register.controls['contactNumber'].touched">
+                    Phone Pattern not matching *
+                  </div>
+            </div>
+        </div>
+        <br>
+      <div class="form-group my-3 ">
+        <div class="col-md-12 text-center">
+            <input type="submit" class=" btn btn-primary" value="Submit"> &nbsp;
+            <input type="reset" class="btn btn-danger" value="Reset"> &nbsp;
+            <button type="button" class="nav-item nav-link-edit" [routerLink]="['']"  class="btn btn-warning " >Back</button>
+        </div>
+    </div>
+    </form>
+  </div>

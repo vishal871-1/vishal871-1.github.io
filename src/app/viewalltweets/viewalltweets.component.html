@@ -1,0 +1,33 @@
+
+<div class="container">
+    <h2 style="text-align: center;">All Tweets</h2>             
+    <table class="table table-bordered table-hover border-dark">
+      <thead>
+        <tr>
+          <th style="width: 10%">Tweet ID</th>
+          <th style="width: 10%">UserName</th>
+          <th style="width: 25%">Tweet Message</th>
+          <th style="width: 25%">Replies</th>
+          <th style="width: 30%">More</th>
+        </tr>
+      </thead>
+      <tbody *ngFor='let i of tweets'>
+        <tr>
+          <td>{{i.tweetId}}</td>
+          <td>{{i.userName}}</td>
+          <td>{{i.message}}</td>
+          <td><ul *ngFor='let j of i.reply'>
+            <li>{{j}}</li>
+          </ul></td>
+            <td>
+            
+            <button class="btn btn-primary" (click)="Like(i.tweetId)"> <i class="fa far fa-heart"></i> &nbsp; {{i.like}}</button>&nbsp;
+                     <form [formGroup]="ReplyTweet" class="form-inline">
+              <input type="text" placeholder="Reply" id="myreply" formControlName="reply">
+              <button type="button" class="btn btn-info" (click)="Reply(i.tweetId)"> <i class="fa fas fa-reply"></i></button>&nbsp;          
+            </form>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

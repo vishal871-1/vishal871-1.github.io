@@ -1,0 +1,43 @@
+<div class=" container container-fluid" >
+    <h2 style="text-align: center;">Post Tweet </h2>
+    <form class="form-horizontal" [formGroup]="EditTweet" (ngSubmit)="Post()">
+        <div class="form-group row"> 
+            <label for="tweetID" class="control-label col-sm-2">Tweet Id : </label>
+            <div class="col-sm-10">
+              <input type="number"  class="form-control" id="tweetID" placeholder="Enter the Tweet ID" readonly required formControlName="tweetID">
+              <div class="text-danger" *ngIf="EditTweet.controls['tweetID'].hasError('required')&& EditTweet.controls['tweetID'].touched">
+                Tweet Id is Required*
+              </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group row">
+            <label for="userName" class="control-label col-sm-2">User Name : </label>
+            <div class="col-sm-10">
+              <input type="text"  class="form-control" id="userName" placeholder="Enter your user Name " readonly required formControlName="userName">
+              <div class="text-danger" *ngIf="EditTweet.controls['userName'].hasError('required')&& EditTweet.controls['userName'].touched">
+                User Name is Required*
+              </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group row">
+            <label for="message" class="control-label col-sm-2">Tweet Message : </label>
+            <div class="col-sm-10">
+                <input type="text"  class="form-control" id="message" placeholder="Enter the tweet " required formControlName="message">
+                <div class="text-danger" *ngIf="EditTweet.controls['message'].hasError('required')&& EditTweet.controls['message'].touched">
+                  Message is Required*
+                </div>
+            </div>
+        </div>
+        <br>
+        
+        <br>
+      <div class="form-group my-3 ">
+        <div class="col-md-12 text-center">
+          <input type="submit" class=" btn btn-primary" value="Post"> &nbsp;
+            <button type="button" class="nav-item nav-link-edit" [routerLink]="['/viewalltweets']"  class="btn btn-warning">Back</button>
+        </div>
+    </div>
+    </form>
+  </div>
